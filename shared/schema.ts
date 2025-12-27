@@ -27,9 +27,11 @@ export const insertBookingSchema = createInsertSchema(bookings).omit({
   createdAt: true 
 }).extend({
   email: z.string().email("Email invalide"),
-  phone: z.string().min(8, "Numéro de téléphone invalide"),
+  phone: z.string().min(1, "Téléphone requis"),
   quantity: z.number().min(1, "Au moins 1 ticket requis").max(10, "Maximum 10 tickets par commande"),
   visitDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Format de date invalide"),
+  ticketType: z.string().min(1, "Type de billet requis"),
+  totalPrice: z.number().min(0),
 });
 
 export type Booking = typeof bookings.$inferSelect;

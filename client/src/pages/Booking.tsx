@@ -69,8 +69,12 @@ export default function Booking() {
       ...data,
       visitDate: format(date, "yyyy-MM-dd"),
       ticketType: selectedTicketType,
+      totalPrice: totalPrice,
     }, {
-      onSuccess: () => setLocation("/succes")
+      onSuccess: () => setLocation("/succes"),
+      onError: (error: any) => {
+        console.error("Booking error:", error);
+      }
     });
   };
 
@@ -253,7 +257,7 @@ export default function Booking() {
                     <Loader2 className="w-5 h-5 animate-spin" /> Traitement...
                   </>
                 ) : (
-                  "Confirmer la réservation"
+                  "Procéder au paiement"
                 )}
               </button>
             </form>
