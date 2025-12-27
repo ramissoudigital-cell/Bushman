@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocation } from "wouter";
@@ -55,6 +55,8 @@ export default function Booking() {
       phone: "",
       quantity: 1,
       ticketType: "adult",
+      visitDate: format(new Date(), "yyyy-MM-dd"),
+      totalPrice: 0,
     }
   });
 
@@ -62,8 +64,27 @@ export default function Booking() {
   const ticketPrice = Object.values(TICKET_TYPES).find(t => t.id === selectedTicketType)?.price || 0;
   const totalPrice = ticketPrice * quantity;
 
+  useEffect(() => {
+    if (!date) return;
+
+    form.setValue("visitDate", format(date, "yyyy-MM-dd"), { shouldValidate: false });
+    form.setValue("ticketType", selectedTicketType, { shouldValidate: false });
+    form.setValue("totalPrice", totalPrice, { shouldValidate: false });
+  }, [date, form, selectedTicketType, totalPrice]);
+
   const onSubmit = async (data: InsertBooking) => {
     if (!date) return;
+    
+    // Save booking data for payment page
+    const bookingData = {
+      ticketType: selectedTicketType,
+      ticketName: Object.values(TICKET_TYPES).find(t => t.id === selectedTicketType)?.name || "Billet",
+      ticketPrice: Object.values(TICKET_TYPES).find(t => t.id === selectedTicketType)?.price || 0,
+      quantity,
+      visitDate: format(date, "yyyy-MM-dd"),
+      totalPrice,
+    };
+    localStorage.setItem("bookingData", JSON.stringify(bookingData));
     
     // For prototype purposes, navigate directly to payment page
     setLocation("/paiement");
@@ -141,6 +162,10 @@ export default function Booking() {
             className="bg-card border border-white/5 rounded-3xl p-6 md:p-8 shadow-2xl shadow-black/50"
           >
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <input type="hidden" {...form.register("quantity", { valueAsNumber: true })} />
+              <input type="hidden" {...form.register("ticketType")} />
+              <input type="hidden" {...form.register("visitDate")} />
+              <input type="hidden" {...form.register("totalPrice", { valueAsNumber: true })} />
               
               {/* Date Selection */}
               <div className="space-y-2">
@@ -180,7 +205,7 @@ export default function Booking() {
                       selected={selectedTicketType === value.id}
                       onSelect={() => {
                         setSelectedTicketType(value.id);
-                        form.setValue("ticketType", value.id);
+                        form.setValue("ticketType", value.id, { shouldDirty: true, shouldTouch: true });
                       }}
                     />
                   ))}
@@ -195,7 +220,12 @@ export default function Booking() {
                     type="button"
                     onClick={() => {
                       const current = form.getValues("quantity");
-                      if (current > 1) form.setValue("quantity", current - 1);
+                      if (current > 1) {
+                        form.setValue("quantity", current - 1, {
+                          shouldDirty: true,
+                          shouldTouch: true,
+                        });
+                      }
                     }}
                     className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
                   >
@@ -206,7 +236,12 @@ export default function Booking() {
                     type="button"
                     onClick={() => {
                       const current = form.getValues("quantity");
-                      if (current < 10) form.setValue("quantity", current + 1);
+                      if (current < 10) {
+                        form.setValue("quantity", current + 1, {
+                          shouldDirty: true,
+                          shouldTouch: true,
+                        });
+                      }
                     }}
                     className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
                   >

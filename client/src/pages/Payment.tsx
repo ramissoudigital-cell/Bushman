@@ -1,11 +1,29 @@
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
+import { useEffect, useState } from "react";
 import { Smartphone, CreditCard, ArrowLeft, ShieldCheck, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+interface BookingData {
+  ticketType: string;
+  ticketName: string;
+  ticketPrice: number;
+  quantity: number;
+  visitDate: string;
+  totalPrice: number;
+}
+
 export default function Payment() {
   const [, setLocation] = useLocation();
+  const [bookingData, setBookingData] = useState<BookingData | null>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("bookingData");
+    if (stored) {
+      setBookingData(JSON.parse(stored));
+    }
+  }, []);
 
   return (
     <div className="min-h-screen pt-32 pb-24 bg-background relative overflow-hidden flex items-center justify-center">
@@ -37,21 +55,21 @@ export default function Payment() {
             <h2 className="text-xl font-semibold text-white/90 mb-4">Choose payment method</h2>
             
             <PaymentOption 
-              icon={<Smartphone className="w-8 h-8" />}
-              name="Wave"
+              icon={<img src="/wave-logo.png" alt="Wave" className="w-16 h-16 object-contain" />}
+              name={<span translate="no" className="notranslate">Wave</span>}
               description="Instant payment via Wave app"
               color="bg-sky-500"
             />
             
             <PaymentOption 
-              icon={<Smartphone className="w-8 h-8" />}
-              name="Orange Money"
+              icon={<img src="/orange-money-logo.png" alt="Orange Money" className="w-16 h-16 object-contain" />}
+              name={<span translate="no" className="notranslate">Orange Money</span>}
               description="Enter your number to receive a request"
               color="bg-orange-500"
             />
 
             <PaymentOption 
-              icon={<CreditCard className="w-8 h-8" />}
+              icon={<img src="/credit-cards.jpg" alt="Bank Cards" className="w-16 h-16 object-contain" />}
               name="Bank Card"
               description="Visa, Mastercard, American Express"
               color="bg-indigo-500"
@@ -71,16 +89,16 @@ export default function Payment() {
                 
                 <div className="space-y-4 text-sm text-gray-400">
                   <div className="flex justify-between py-2 border-b border-white/5">
-                    <span>Adult Ticket</span>
-                    <span className="text-white font-medium">15€</span>
+                    <span>{bookingData?.ticketName || "Adult Ticket"}</span>
+                    <span className="text-white font-medium">{bookingData?.ticketPrice || 15}€</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-white/5">
                     <span>Quantity</span>
-                    <span className="text-white font-medium">1x</span>
+                    <span className="text-white font-medium">{bookingData?.quantity || 1}x</span>
                   </div>
                   <div className="flex justify-between pt-6 text-xl">
                     <span className="text-white font-medium">Total</span>
-                    <span className="text-primary font-bold text-3xl">15€</span>
+                    <span className="text-primary font-bold text-3xl">{bookingData?.totalPrice || 15}€</span>
                   </div>
                 </div>
 
@@ -101,10 +119,10 @@ export default function Payment() {
   );
 }
 
-function PaymentOption({ icon, name, description, color }: { icon: React.ReactNode, name: string, description: string, color: string }) {
+function PaymentOption({ icon, name, description, color }: { icon: React.ReactNode, name: React.ReactNode, description: string, color: string }) {
   return (
     <div className="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 cursor-pointer flex items-center gap-6 backdrop-blur-sm relative overflow-hidden">
-      <div className={`w-16 h-16 rounded-2xl ${color} flex items-center justify-center text-white shrink-0 shadow-lg`}>
+      <div className={`w-16 h-16 rounded-2xl ${color} flex items-center justify-center shrink-0 shadow-lg overflow-hidden`}>
         {icon}
       </div>
       <div className="flex-1">

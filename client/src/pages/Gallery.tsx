@@ -1,48 +1,48 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-// Using Unsplash images for "museum exhibits"
+// Using local museum photos from client/public
 const exhibits = [
   {
     id: 1,
-    title: "Silence Éternel",
+    title: "Du Cacao Pur",
     category: "Sculpture",
-    image: "https://images.unsplash.com/photo-1554188248-986adbb73be0?q=80&w=2070&auto=format&fit=crop",
+    image: "/cacao_img5.webp",
     size: "large"
   },
   {
     id: 2,
     title: "Géométrie Astrale",
     category: "Installation",
-    image: "https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?q=80&w=2070&auto=format&fit=crop",
+    image: "/cacao_img15.webp",
     size: "small"
   },
   {
     id: 3,
-    title: "Le Vide",
+    title: "Masques",
     category: "Conceptuel",
-    image: "https://images.unsplash.com/photo-1518998053980-fa646e740e66?q=80&w=2070&auto=format&fit=crop",
+    image: "/cacao_img6.webp",
     size: "small"
   },
   {
     id: 4,
-    title: "Fragments de Nuit",
-    category: "Peinture",
-    image: "https://images.unsplash.com/photo-1502691876148-a84978e59af8?q=80&w=2070&auto=format&fit=crop",
+    title: "Fèves de Cacao",
+    category: "Gastronomie",
+    image: "/cacao_img3.webp",
     size: "tall"
   },
   {
     id: 5,
-    title: "Réflexion",
-    category: "Installation",
-    image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?q=80&w=2070&auto=format&fit=crop",
+    title: "Awards 2024",
+    category: "Événement",
+    image: "/cacao_img14.webp",
     size: "small"
   },
   {
     id: 6,
-    title: "Architecture de l'Ombre",
-    category: "Architecture",
-    image: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop",
+    title: "Prix 2024",
+    category: "Événement",
+    image: "/videoframe_14738.mp4",
     size: "large"
   },
 ];
@@ -88,11 +88,22 @@ export default function Gallery() {
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              <img 
-                src={item.image} 
-                alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
-              />
+              {item.image.endsWith('.mp4') || item.image.endsWith('.webm') ? (
+                <video
+                  src={item.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                />
+              ) : (
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                />
+              )}
               
               {/* Overlay Content */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 md:p-8">

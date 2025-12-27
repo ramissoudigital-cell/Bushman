@@ -11,7 +11,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           {/* Abstract dark museum atmosphere */}
           <img 
-            src="/attached_assets/WhatsApp_Image_2025-12-26_at_19.45.59_1766804702726.jpeg"
+            src="/muser.jpeg"
             alt="Ambiance sombre et artistique du musée"
             className="w-full h-full object-cover scale-110 animate-slow-zoom opacity-40"
           />
@@ -36,7 +36,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 font-light leading-relaxed backdrop-blur-sm bg-black/10 py-4 rounded-2xl border border-white/5 px-6">
-              Dare the invisible. Cross a frontier of light where every shadow tells a story and every spark becomes pure emotion.
+              Plongez dans l'art où chaque œuvre révèle une émotion et chaque regard devient une expérience unique.
             </p>
             
             <Link href="/billetterie">
@@ -98,17 +98,17 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-                A Nocturnal <span className="text-primary">Odyssey</span>
+                Musée des <span className="text-primary">Ombres et des Lumières</span>
               </h2>
               <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
                 <p>
-                  BUSHMAN Museum is not like any other museum. Here, darkness is not an absence, but a blank canvas.
+                  Musée des Ombres et des Lumières. Une expérience immersive au cœur de l'art méconnu.
                 </p>
                 <p>
-                  Through interactive installations and light sculptures, we explore the fundamental duality of our perception. Each room is an invitation to lose your bearings to better find yourself.
+                  À travers des installations interactives et des sculptures lumineuses, nous explorons la dualité fondamentale de notre perception.
                 </p>
                 <p>
-                  Let your eyes adjust to the gloom and discover details invisible in daylight.
+                  Laissez vos yeux s’habituer à la pénombre pour découvrir des détails invisibles en pleine lumière.
                 </p>
               </div>
               <div className="mt-10">
@@ -130,7 +130,7 @@ export default function Home() {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative group">
                 {/* Modern light installation art */}
                 <img 
-                  src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=2070&auto=format&fit=crop"
+                  src="/muser%202.jpeg"
                   alt="Installation lumineuse"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
