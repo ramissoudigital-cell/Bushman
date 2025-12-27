@@ -31,7 +31,7 @@ export default function Contact() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -102,6 +102,24 @@ export default function Contact() {
             </div>
           </motion.div>
         </div>
+
+        {/* Map Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[16/9] md:aspect-[21/9]"
+        >
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15889.3039656834!2d-3.966667!3d5.333333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1ed67d7a8e5f7%3A0x6a0a0a0a0a0a0a0a!2sBushman%20Caf%C3%A9!5e0!3m2!1sfr!2sci!4v1714000000000!5m2!1sfr!2sci" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0, filter: 'grayscale(1) invert(0.9) contrast(1.2)' }} 
+            allowFullScreen={true} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </motion.div>
       </div>
     </div>
   );
