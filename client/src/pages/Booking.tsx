@@ -62,9 +62,13 @@ export default function Booking() {
   const ticketPrice = Object.values(TICKET_TYPES).find(t => t.id === selectedTicketType)?.price || 0;
   const totalPrice = ticketPrice * quantity;
 
-  const onSubmit = (data: InsertBooking) => {
+  const onSubmit = async (data: InsertBooking) => {
     if (!date) return;
     
+    // For prototype purposes, navigate directly to payment page
+    setLocation("/paiement");
+    
+    /* 
     mutate({
       ...data,
       visitDate: format(date, "yyyy-MM-dd"),
@@ -76,6 +80,7 @@ export default function Booking() {
         console.error("Booking error:", error);
       }
     });
+    */
   };
 
   return (
