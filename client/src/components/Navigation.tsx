@@ -52,7 +52,7 @@ export function Navigation() {
               <span className={`text-xl font-display font-bold tracking-wider transition-colors ${
                 isScrolled || !isHomePage ? "text-white" : "text-white"
               }`}>
-                LUMINA
+                BUSHMAN
               </span>
             </motion.div>
           </Link>

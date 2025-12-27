@@ -26,7 +26,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.2 }}
           >
             <h2 className="text-primary font-display text-xl md:text-2xl mb-4 tracking-[0.2em] uppercase">
-              Exposition Permanente
+              BUSHMAN
             </h2>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8 leading-tight">
               L'Ombre Révèle <br/>
