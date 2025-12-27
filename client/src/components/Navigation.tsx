@@ -32,7 +32,7 @@ export function Navigation() {
       transition={{ duration: 0.6 }}
       className={`fixed w-full z-[100] transition-all duration-500 ${
         isScrolled || !isHomePage
-          ? "bg-background/70 backdrop-blur-xl shadow-lg border-b border-white/10"
+          ? "bg-background/40 backdrop-blur-xl shadow-lg border-b border-white/10"
           : "bg-transparent"
       }`}
     >
