@@ -12,6 +12,7 @@ import Home from "@/pages/Home";
 import Gallery from "@/pages/Gallery";
 import Booking from "@/pages/Booking";
 import Success from "@/pages/Success";
+import Payment from "@/pages/Payment";
 import NotFound from "@/pages/not-found";
 
 function ScrollToTop() {
@@ -35,6 +36,7 @@ function Router() {
           <Route path="/accueil" component={Home} />
           <Route path="/galerie" component={Gallery} />
           <Route path="/billetterie" component={Booking} />
+          <Route path="/paiement" component={Payment} />
           <Route path="/succes" component={Success} />
           <Route component={NotFound} />
         </Switch>

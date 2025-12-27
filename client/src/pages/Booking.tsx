@@ -71,7 +71,7 @@ export default function Booking() {
       ticketType: selectedTicketType,
       totalPrice: totalPrice,
     }, {
-      onSuccess: () => setLocation("/succes"),
+      onSuccess: () => setLocation("/paiement"),
       onError: (error: any) => {
         console.error("Booking error:", error);
       }
