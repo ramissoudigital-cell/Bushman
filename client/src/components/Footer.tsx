@@ -10,9 +10,11 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <Ticket className="w-6 h-6 text-primary" />
+              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                <Ticket className="w-5 h-5 text-primary" />
+              </div>
               <span className="font-display text-2xl font-bold tracking-wider text-white">
-                LUMINA
+                BUSHMAN
               </span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -24,9 +26,9 @@ export function Footer() {
           <div>
             <h4 className="font-display text-lg mb-6 text-white">Navigation</h4>
             <ul className="space-y-3">
-              <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors text-sm">Accueil</Link></li>
+              <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors text-sm">Billetterie</Link></li>
+              <li><Link href="/accueil" className="text-muted-foreground hover:text-primary transition-colors text-sm">Accueil</Link></li>
               <li><Link href="/galerie" className="text-muted-foreground hover:text-primary transition-colors text-sm">La Galerie</Link></li>
-              <li><Link href="/billetterie" className="text-muted-foreground hover:text-primary transition-colors text-sm">Billetterie</Link></li>
             </ul>
           </div>
 
@@ -40,7 +42,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contact@musee-lumina.fr</span>
+                <span>contact@bushman-musee.fr</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary" />
@@ -67,7 +69,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/5 pt-8 text-center text-xs text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Musée Lumina. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} Musée BUSHMAN. Tous droits réservés.</p>
         </div>
       </div>
     </footer>
