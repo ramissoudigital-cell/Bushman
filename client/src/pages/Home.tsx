@@ -42,7 +42,7 @@ export default function Home() {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full text-lg shadow-[0_0_20px_rgba(56,189,248,0.3)] hover:shadow-[0_0_30px_rgba(56,189,248,0.5)] transition-all duration-300 flex items-center gap-2 mx-auto"
+                className="group relative px-8 py-4 bg-primary/10 text-primary font-semibold rounded-full text-lg shadow-[0_0_20px_rgba(56,189,248,0.1)] hover:shadow-[0_0_30px_rgba(56,189,248,0.3)] transition-all duration-300 flex items-center gap-2 mx-auto backdrop-blur-2xl border border-primary/20"
               >
                 Réserver votre place
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
