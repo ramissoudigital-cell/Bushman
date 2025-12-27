@@ -11,7 +11,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           {/* Abstract dark museum atmosphere */}
           <img 
-            src="https://pixabay.com/get/gacbd4c6bdf97768d0abfa70de2779deed2aab09f645659ec1c6339d8e31de8583c8c05a5e748ee4e2801a6a1570db085599a3d765a6f8a2738dde1974554ea20_1280.jpg"
+            src="@assets/WhatsApp_Image_2025-12-26_at_19.45.59_1766804702726.jpeg"
             alt="Ambiance sombre et artistique du musée"
             className="w-full h-full object-cover opacity-60"
           />
