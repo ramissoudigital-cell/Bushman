@@ -1,0 +1,138 @@
+// ... keep existing code (imports and useState/useEffect) ...
+
+const navItems = [
+  { name: "Accueil", page: "Home" },
+  { name: "Galerie", page: "Galerie" },
+  { name: "Billetterie", page: "Billetterie" }
+];
+
+export default function Layout({ children, currentPageName }) {
+  // ... keep existing code (isScrolled, mobileMenuOpen, location, isHomePage) ...
+
+  return (
+    <div className="min-h-screen">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+        
+        body {
+          font-family: 'Inter', sans-serif;
+        }
+      `}</style>
+
+      {/* Navigation */}
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled || !isHomePage
+            ? "bg-white/95 backdrop-blur-md shadow-sm"
+            : "bg-transparent"
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link to={createPageUrl("Home")}>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="flex items-center gap-3"
+              >
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                  isScrolled || !isHomePage ? "bg-blue-950" : "bg-white/20"
+                }`}>
+                  <span className={`text-lg font-light ${
+                    isScrolled || !isHomePage ? "text-white" : "text-white"
+                  }`}>M</span>
+                </div>
+                <span className={`text-xl font-light tracking-wide hidden sm:block ${
+                  isScrolled || !isHomePage ? "text-blue-950" : "text-white"
+                }`}>
+                  Musée d'Art
+                </span>
+              </motion.div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => (
+                <Link key={item.page} to={createPageUrl(item.page)}>
+                  <motion.span
+                    whileHover={{ scale: 1.05 }}
+                    className={`text-sm tracking-wide transition-colors ${
+                      currentPageName === item.page
+                        ? isScrolled || !isHomePage
+                          ? "text-sky-600" // Couleur du lien actif (bleu ciel)
+                          : "text-sky-400" // Couleur du lien actif en transparence
+                        : isScrolled || !isHomePage
+                          ? "text-slate-600 hover:text-blue-950" // Couleur des liens inactifs après défilement
+                          : "text-white/80 hover:text-white" // Couleur des liens inactifs au début
+                    }`}
+                  >
+                    {item.name}
+                  </motion.span>
+                </Link>
+              ))}
+              <Link to={createPageUrl("Billetterie")}>
+                <Button
+                  size="sm"
+                  className={`rounded-none px-6 ${
+                    isScrolled || !isHomePage
+                      ? "bg-sky-500 hover:bg-sky-600 text-white" // Bouton après défilement (bleu ciel)
+                      : "bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm" // Bouton au début (blanc transparent)
+                  }`}
+                >
+                  <Ticket className="h-4 w-4 mr-2" />
+                  Billetterie
+                </Button>
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`md:hidden p-2 ${
+                isScrolled || !isHomePage ? "text-blue-950" : "text-white" // Couleur de l'icône du menu mobile
+              }`}
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </nav>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-white border-t"
+            >
+              <div className="px-6 py-4 space-y-4">
+                {navItems.map((item) => (
+                  <Link key={item.page} to={createPageUrl(item.page)}>
+                    <div className={`py-2 text-lg ${
+                      currentPageName === item.page
+                        ? "text-sky-600" // Couleur du lien actif dans le menu mobile
+                        : "text-slate-600" // Couleur du lien inactif dans le menu mobile
+                    }`}>
+                      {item.name}
+                    </div>
+                  </Link>
+                ))}
+                <Link to={createPageUrl("Billetterie")}>
+                  <Button className="w-full mt-4 bg-sky-500 hover:bg-sky-600 text-white rounded-none">
+                    <Ticket className="h-4 w-4 mr-2" />
+                    Billetterie
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.header>
+      {/* ... keep existing code (main content and footer) ... */}
+    </div>
+  );
+}
