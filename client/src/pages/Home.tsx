@@ -13,9 +13,10 @@ export default function Home() {
           <img 
             src="/attached_assets/WhatsApp_Image_2025-12-26_at_19.45.59_1766804702726.jpeg"
             alt="Ambiance sombre et artistique du musée"
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover scale-110 animate-slow-zoom opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/20 to-background"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]"></div>
         </div>
 
         {/* Hero Content */}
@@ -28,13 +29,13 @@ export default function Home() {
             <h2 className="text-primary font-display text-xl md:text-2xl mb-4 tracking-[0.2em] uppercase">
               BUSHMAN
             </h2>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8 leading-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-9xl font-display font-bold text-white mb-8 leading-tight tracking-tighter">
               L'Éveil des <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-primary/50">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary animate-pulse">
                 Sens
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 font-light leading-relaxed backdrop-blur-sm bg-black/10 py-4 rounded-2xl border border-white/5 px-6">
               Osez l'invisible. Traversez une frontière de lumière où chaque ombre raconte une histoire et chaque éclat devient une émotion pure.
             </p>
             
