@@ -19,7 +19,6 @@ export function Navigation() {
 
   const links = [
     { href: "/", label: "Billetterie" },
-    { href: "/paiement", label: "Paiement" },
     { href: "/accueil", label: "Accueil" },
     { href: "/galerie", label: "La Galerie" },
   ];
