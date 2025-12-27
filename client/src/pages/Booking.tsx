@@ -52,9 +52,9 @@ export default function Booking() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       quantity: 1,
       ticketType: "adult",
-      // visitDate is handled separately because of Date object vs string
     }
   });
 
@@ -228,6 +228,17 @@ export default function Booking() {
                   />
                   {form.formState.errors.email && (
                     <p className="text-xs text-destructive">{form.formState.errors.email.message}</p>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300">Téléphone</label>
+                  <input 
+                    {...form.register("phone")}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                    placeholder="+225 00 00 00 00"
+                  />
+                  {form.formState.errors.phone && (
+                    <p className="text-xs text-destructive">{form.formState.errors.phone.message}</p>
                   )}
                 </div>
               </div>

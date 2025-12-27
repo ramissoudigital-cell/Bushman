@@ -14,6 +14,7 @@ export const bookings = pgTable("bookings", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull(),
+  phone: text("phone").notNull(),
   visitDate: text("visit_date").notNull(), // Storing as ISO string YYYY-MM-DD
   ticketType: text("ticket_type").notNull(),
   quantity: integer("quantity").notNull(),
