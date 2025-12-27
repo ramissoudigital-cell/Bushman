@@ -21,6 +21,7 @@ export function Navigation() {
     { href: "/", label: "Billetterie" },
     { href: "/accueil", label: "Accueil" },
     { href: "/galerie", label: "La Galerie" },
+    { href: "/contact", label: "Contact" },
   ];
 
   const isHomePage = location === "/accueil" || location === "/";
