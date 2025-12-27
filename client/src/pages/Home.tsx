@@ -29,13 +29,13 @@ export default function Home() {
               BUSHMAN
             </h2>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8 leading-tight">
-              L'Ombre Révèle <br/>
+              L'Éveil des <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-primary/50">
-                La Lumière
+                Sens
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-              Plongez dans l'obscurité pour mieux voir. Une expérience sensorielle unique où l'art prend vie dans le noir.
+              Osez l'invisible. Traversez une frontière de lumière où chaque ombre raconte une histoire et chaque éclat devient une émotion pure.
             </p>
             
             <Link href="/billetterie">
@@ -75,7 +75,7 @@ export default function Home() {
             <InfoCard 
               icon={<MapPin className="w-8 h-8 text-primary" />}
               title="Accès"
-              description="12 Avenue des Arts, Paris. Métro ligne 1, station Louvre-Rivoli."
+              description="3, route de M'Pouto, Cocody Riviera 3, Cote d'Ivoire"
             />
             <InfoCard 
               icon={<Ticket className="w-8 h-8 text-primary" />}

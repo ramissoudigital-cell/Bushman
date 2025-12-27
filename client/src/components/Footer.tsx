@@ -38,15 +38,15 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>12 Avenue des Arts, Paris</span>
+                <span>3, route de M'Pouto, Cocody Riviera 3, Cote d'Ivoire</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contact@bushman-musee.fr</span>
+                <span>contact@bushmanreturntoimagination.com</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>+33 1 23 45 67 89</span>
+                <span>+225 0759496651</span>
               </li>
             </ul>
           </div>
