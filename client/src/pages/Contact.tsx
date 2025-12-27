@@ -9,8 +9,16 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-32 pb-24 bg-background relative overflow-hidden">
       {/* Background Decorative Blobs */}
-      <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <motion.div
+        className="absolute top-16 right-[-60px] w-[520px] h-[520px] bg-primary/15 rounded-full blur-[120px] pointer-events-none"
+        animate={{ x: [0, -60, 0], y: [0, 45, 0], scale: [1, 1.12, 1], rotate: [0, 10, 0], opacity: [0.55, 0.9, 0.55] }}
+        transition={{ duration: 8, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-[-80px] left-[-60px] w-[560px] h-[560px] bg-indigo-500/15 rounded-full blur-[130px] pointer-events-none"
+        animate={{ x: [0, 55, 0], y: [0, -45, 0], scale: [1, 1.1, 1], rotate: [0, -10, 0], opacity: [0.5, 0.85, 0.5] }}
+        transition={{ duration: 9, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">

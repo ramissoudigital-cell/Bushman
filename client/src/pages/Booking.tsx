@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon, Loader2, Minus, Plus } from "lucide-react";
+import { CalendarIcon, Loader2, Minus, Plus, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { TICKET_TYPES, insertBookingSchema, type InsertBooking } from "@shared/schema";
 import { useCreateBooking } from "@/hooks/use-bookings";
@@ -24,21 +24,59 @@ const TicketSelector = ({
   selected: boolean, 
   onSelect: () => void 
 }) => (
-  <div 
+  <motion.button 
+    type="button"
     onClick={onSelect}
+    whileHover={{ scale: 1.01, y: -1 }}
+    whileTap={{ scale: 0.99 }}
     className={cn(
-      "cursor-pointer p-4 rounded-xl border transition-all duration-200 flex justify-between items-center group",
-      selected 
-        ? "bg-primary/10 border-primary" 
-        : "bg-white/5 border-white/5 hover:border-primary/50 hover:bg-white/10"
+      "relative w-full text-left p-5 rounded-2xl border transition-all duration-300 overflow-hidden group",
+      "bg-gradient-to-b from-white/[0.08] to-white/[0.02]",
+      selected
+        ? "border-primary/70 shadow-[0_0_0_1px_rgba(56,189,248,0.45),0_20px_60px_-25px_rgba(56,189,248,0.35)]"
+        : "border-white/10 hover:border-primary/40 hover:shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]"
     )}
   >
-    <div>
-      <h4 className={cn("font-medium", selected ? "text-primary" : "text-white")}>{data.name}</h4>
-      <p className="text-sm text-muted-foreground">Accès complet aux expositions</p>
+    <div
+      className={cn(
+        "pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300",
+        selected ? "opacity-100" : "opacity-0"
+      )}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/25 via-cyan-400/10 to-transparent" />
+      <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/20 rounded-full blur-3xl" />
     </div>
-    <span className="font-display text-xl font-bold text-white">{data.price}€</span>
-  </div>
+
+    <div className="relative z-10 flex items-start justify-between gap-6">
+      <div className="space-y-1">
+        <h4 className={cn("font-display text-xl font-bold tracking-tight", selected ? "text-white" : "text-white/90")}>
+          {data.name}
+        </h4>
+        <p className="text-sm text-muted-foreground">
+          Accès complet aux expositions
+        </p>
+      </div>
+
+      <div className="flex items-center gap-3">
+        <span className={cn(
+          "font-display text-2xl font-extrabold",
+          selected ? "text-primary" : "text-white"
+        )}>
+          {data.price}€
+        </span>
+        <span
+          className={cn(
+            "w-8 h-8 rounded-full border flex items-center justify-center transition-all",
+            selected
+              ? "border-primary/60 bg-primary/15 shadow-[0_0_25px_rgba(56,189,248,0.35)]"
+              : "border-white/15 bg-white/5 group-hover:border-primary/40"
+          )}
+        >
+          {selected ? <Check className="w-4 h-4 text-primary" /> : null}
+        </span>
+      </div>
+    </div>
+  </motion.button>
 );
 
 export default function Booking() {
@@ -107,8 +145,16 @@ export default function Booking() {
   return (
     <div className="min-h-screen pt-32 pb-24 bg-background relative overflow-hidden">
       {/* Background Decorative Blobs */}
-      <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <motion.div
+        className="absolute top-16 right-[-60px] w-[520px] h-[520px] bg-primary/15 rounded-full blur-[120px] pointer-events-none"
+        animate={{ x: [0, -60, 0], y: [0, 45, 0], scale: [1, 1.12, 1], rotate: [0, 10, 0], opacity: [0.55, 0.9, 0.55] }}
+        transition={{ duration: 8, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-[-80px] left-[-60px] w-[560px] h-[560px] bg-indigo-500/15 rounded-full blur-[130px] pointer-events-none"
+        animate={{ x: [0, 55, 0], y: [0, -45, 0], scale: [1, 1.1, 1], rotate: [0, -10, 0], opacity: [0.5, 0.85, 0.5] }}
+        transition={{ duration: 9, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+      />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
@@ -144,11 +190,27 @@ export default function Booking() {
                 </div>
                 <div className="flex justify-between py-2 border-b border-white/5">
                   <span>Quantity</span>
-                  <span className="text-white font-medium">{quantity}x</span>
+                  <motion.span
+                    key={quantity}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="text-white font-medium"
+                  >
+                    {quantity}x
+                  </motion.span>
                 </div>
                 <div className="flex justify-between pt-4 text-lg">
                   <span className="text-white font-medium">Total</span>
-                  <span className="text-primary font-bold text-2xl">{totalPrice}€</span>
+                  <motion.span
+                    key={totalPrice}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="text-primary font-bold text-2xl"
+                  >
+                    {totalPrice}€
+                  </motion.span>
                 </div>
               </div>
             </div>
@@ -216,7 +278,7 @@ export default function Booking() {
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-300">Number of people</label>
                 <div className="flex items-center gap-4">
-                  <button 
+                  <motion.button 
                     type="button"
                     onClick={() => {
                       const current = form.getValues("quantity");
@@ -227,12 +289,22 @@ export default function Booking() {
                         });
                       }
                     }}
-                    className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.96 }}
+                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 hover:text-white transition-all"
                   >
                     <Minus size={16} />
-                  </button>
-                  <span className="text-xl font-display font-bold w-8 text-center">{quantity}</span>
-                  <button 
+                  </motion.button>
+                  <motion.span
+                    key={quantity}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-2xl font-display font-extrabold w-10 text-center text-white"
+                  >
+                    {quantity}
+                  </motion.span>
+                  <motion.button 
                     type="button"
                     onClick={() => {
                       const current = form.getValues("quantity");
@@ -243,10 +315,12 @@ export default function Booking() {
                         });
                       }
                     }}
-                    className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.96 }}
+                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 hover:text-white transition-all"
                   >
                     <Plus size={16} />
-                  </button>
+                  </motion.button>
                 </div>
               </div>
 
@@ -287,9 +361,11 @@ export default function Booking() {
                 </div>
               </div>
 
-              <button 
+              <motion.button 
                 type="submit"
                 disabled={isPending || !date}
+                whileHover={isPending || !date ? undefined : { scale: 1.02, y: -1 }}
+                whileTap={isPending || !date ? undefined : { scale: 0.99 }}
                 className="w-full py-4 rounded-xl font-semibold text-lg bg-gradient-to-r from-primary to-cyan-400 text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2"
               >
                 {isPending ? (
@@ -299,7 +375,7 @@ export default function Booking() {
                 ) : (
                   "Proceed to Payment"
                 )}
-              </button>
+              </motion.button>
             </form>
           </motion.div>
         </div>
