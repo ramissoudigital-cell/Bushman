@@ -18,7 +18,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Musée des Ombres et Lumières. Une expérience immersive au cœur de l'art obscur.
+              Museum of Shadows and Lights. An immersive experience in the heart of obscure art.
             </p>
           </div>
 
@@ -26,9 +26,9 @@ export function Footer() {
           <div>
             <h4 className="font-display text-lg mb-6 text-white">Navigation</h4>
             <ul className="space-y-3">
-              <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors text-sm">Billetterie</Link></li>
-              <li><Link href="/accueil" className="text-muted-foreground hover:text-primary transition-colors text-sm">Accueil</Link></li>
-              <li><Link href="/galerie" className="text-muted-foreground hover:text-primary transition-colors text-sm">La Galerie</Link></li>
+              <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors text-sm">Ticketing</Link></li>
+              <li><Link href="/accueil" className="text-muted-foreground hover:text-primary transition-colors text-sm">Home</Link></li>
+              <li><Link href="/galerie" className="text-muted-foreground hover:text-primary transition-colors text-sm">Gallery</Link></li>
               <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact</Link></li>
             </ul>
           </div>
@@ -87,7 +87,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/5 pt-8 text-center text-xs text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Musée BUSHMAN. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} BUSHMAN Museum. All rights reserved.</p>
         </div>
       </div>
     </footer>

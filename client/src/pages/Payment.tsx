@@ -28,38 +28,38 @@ export default function Payment() {
           >
             <ArrowLeft className="w-6 h-6 text-white" />
           </Button>
-          <h1 className="font-display text-3xl md:text-4xl font-bold text-white">Finaliser le paiement</h1>
+          <h1 className="font-display text-3xl md:text-4xl font-bold text-white">Complete Payment</h1>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Payment Options */}
           <div className="lg:col-span-2 space-y-6">
-            <h2 className="text-xl font-semibold text-white/90 mb-4">Choisir un mode de paiement</h2>
+            <h2 className="text-xl font-semibold text-white/90 mb-4">Choose payment method</h2>
             
             <PaymentOption 
               icon={<Smartphone className="w-8 h-8" />}
               name="Wave"
-              description="Paiement instantané via l'application Wave"
+              description="Instant payment via Wave app"
               color="bg-sky-500"
             />
             
             <PaymentOption 
               icon={<Smartphone className="w-8 h-8" />}
               name="Orange Money"
-              description="Saisissez votre numéro pour recevoir une demande"
+              description="Enter your number to receive a request"
               color="bg-orange-500"
             />
 
             <PaymentOption 
               icon={<CreditCard className="w-8 h-8" />}
-              name="Carte Bancaire"
+              name="Bank Card"
               description="Visa, Mastercard, American Express"
               color="bg-indigo-500"
             />
 
             <div className="flex items-center gap-2 text-muted-foreground text-sm mt-8 justify-center">
               <Lock className="w-4 h-4" />
-              <p>Paiement sécurisé et chiffré</p>
+              <p>Secure and encrypted payment</p>
             </div>
           </div>
 
@@ -67,30 +67,30 @@ export default function Payment() {
           <div className="space-y-6">
             <Card className="bg-card/50 backdrop-blur-xl border-white/10 rounded-3xl overflow-hidden shadow-2xl">
               <CardContent className="p-8">
-                <h3 className="font-display text-2xl font-bold text-white mb-6">Récapitulatif</h3>
+                <h3 className="font-display text-2xl font-bold text-white mb-6">Summary</h3>
                 
                 <div className="space-y-4 text-sm text-gray-400">
                   <div className="flex justify-between py-2 border-b border-white/5">
-                    <span>Billet Adulte</span>
+                    <span>Adult Ticket</span>
                     <span className="text-white font-medium">15€</span>
                   </div>
                   <div className="flex justify-between py-2 border-b border-white/5">
-                    <span>Quantité</span>
+                    <span>Quantity</span>
                     <span className="text-white font-medium">1x</span>
                   </div>
                   <div className="flex justify-between pt-6 text-xl">
-                    <span className="text-white font-medium">À payer</span>
+                    <span className="text-white font-medium">Total</span>
                     <span className="text-primary font-bold text-3xl">15€</span>
                   </div>
                 </div>
 
                 <Button className="w-full mt-8 py-6 rounded-2xl bg-primary hover:bg-primary/80 text-white font-bold text-lg shadow-lg shadow-primary/20">
-                  Confirmer l'achat
+                  Confirm Purchase
                 </Button>
 
                 <div className="mt-6 flex items-center justify-center gap-2 text-xs text-green-500/80">
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Transaction protégée</span>
+                  <span>Protected transaction</span>
                 </div>
               </CardContent>
             </Card>

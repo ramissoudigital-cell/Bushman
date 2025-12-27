@@ -30,13 +30,13 @@ export default function Home() {
               BUSHMAN
             </h2>
             <h1 className="text-5xl md:text-7xl lg:text-9xl font-display font-bold text-white mb-8 leading-tight tracking-tighter">
-              L'Éveil des <br/>
+              Awakening of the <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary animate-pulse">
-                Sens
+                Senses
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 font-light leading-relaxed backdrop-blur-sm bg-black/10 py-4 rounded-2xl border border-white/5 px-6">
-              Osez l'invisible. Traversez une frontière de lumière où chaque ombre raconte une histoire et chaque éclat devient une émotion pure.
+              Dare the invisible. Cross a frontier of light where every shadow tells a story and every spark becomes pure emotion.
             </p>
             
             <Link href="/billetterie">
@@ -45,7 +45,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 className="group relative px-8 py-4 bg-primary/10 text-primary font-semibold rounded-full text-lg shadow-[0_0_20px_rgba(56,189,248,0.1)] hover:shadow-[0_0_30px_rgba(56,189,248,0.3)] transition-all duration-300 flex items-center gap-2 mx-auto backdrop-blur-2xl border border-primary/20"
               >
-                Réserver votre place
+                Book your spot
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </Link>
@@ -70,18 +70,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <InfoCard 
               icon={<Clock className="w-8 h-8 text-primary" />}
-              title="Horaires"
-              description="Ouvert tous les jours de 10h à 22h. Nocturnes le vendredi jusqu'à minuit."
+              title="Opening Hours"
+              description="Open daily from 10am to 10pm. Late nights on Fridays until midnight."
             />
             <InfoCard 
               icon={<MapPin className="w-8 h-8 text-primary" />}
-              title="Accès"
-              description="3, route de M'Pouto, Cocody Riviera 3, Cote d'Ivoire"
+              title="Access"
+              description="3, route de M'Pouto, Cocody Riviera 3, Ivory Coast"
             />
             <InfoCard 
               icon={<Ticket className="w-8 h-8 text-primary" />}
-              title="Tarifs"
-              description="À partir de 8€. Gratuit pour les moins de 5 ans."
+              title="Rates"
+              description="From 8€. Free for children under 5."
             />
           </div>
         </div>
@@ -98,23 +98,23 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-                Une Odyssée <span className="text-primary">Nocturne</span>
+                A Nocturnal <span className="text-primary">Odyssey</span>
               </h2>
               <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
                 <p>
-                  Le Musée Lumina n'est pas un musée comme les autres. Ici, l'obscurité n'est pas une absence, mais une toile vierge.
+                  BUSHMAN Museum is not like any other museum. Here, darkness is not an absence, but a blank canvas.
                 </p>
                 <p>
-                  À travers des installations interactives et des sculptures de lumière, nous explorons la dualité fondamentale de notre perception. Chaque salle est une invitation à perdre vos repères pour mieux vous retrouver.
+                  Through interactive installations and light sculptures, we explore the fundamental duality of our perception. Each room is an invitation to lose your bearings to better find yourself.
                 </p>
                 <p>
-                  Laissez vos yeux s'habituer à la pénombre et découvrez des détails invisibles à la lumière du jour.
+                  Let your eyes adjust to the gloom and discover details invisible in daylight.
                 </p>
               </div>
               <div className="mt-10">
                 <Link href="/galerie">
                   <span className="inline-flex items-center text-primary hover:text-white transition-colors cursor-pointer group font-medium">
-                    Découvrir la collection <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    Discover the collection <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Link>
               </div>

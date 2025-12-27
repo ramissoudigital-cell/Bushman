@@ -27,9 +27,9 @@ export default function Success() {
             <CheckCircle className="w-10 h-10" />
           </motion.div>
           
-          <h1 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Demande enregistrée</h1>
+          <h1 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Request Registered</h1>
           <p className="text-gray-400 mb-8 max-w-md mx-auto">
-            Votre demande de réservation a été prise en compte. Veuillez sélectionner votre mode de paiement pour finaliser l'achat de vos billets.
+            Your booking request has been taken into account. Please select your payment method to finalize your ticket purchase.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 text-left">
@@ -40,7 +40,7 @@ export default function Success() {
             />
             <PaymentMethod 
               icon={<CreditCard className="w-6 h-6" />}
-              name="Carte Bancaire"
+              name="Bank Card"
               description="Visa, Mastercard"
             />
           </div>
@@ -48,11 +48,11 @@ export default function Success() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/billetterie">
               <Button variant="outline" className="w-full sm:w-auto rounded-full px-8 border-white/10 hover:bg-white/5">
-                Retour
+                Back
               </Button>
             </Link>
             <Button className="w-full sm:w-auto bg-primary text-primary-foreground rounded-full px-8 font-semibold hover:bg-primary/90 transition-all group">
-              Payer maintenant
+              Pay Now
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>

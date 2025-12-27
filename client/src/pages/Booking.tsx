@@ -99,18 +99,18 @@ export default function Booking() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 text-white">
-              Réservez votre <br/>
-              <span className="text-primary">expérience</span>
+              Book your <br/>
+              <span className="text-primary">experience</span>
             </h1>
             <p className="text-lg text-gray-400 mb-12 max-w-md">
-              Sélectionnez votre date et vos billets pour plonger dans l'univers de Lumina. Les places sont limitées pour garantir une immersion totale.
+              Select your date and tickets to dive into the universe of BUSHMAN. Places are limited to guarantee a total immersion.
             </p>
 
             <div className="bg-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 mb-8">
-              <h3 className="font-display text-2xl mb-4 text-white">Votre Panier</h3>
+              <h3 className="font-display text-2xl mb-4 text-white">Your Cart</h3>
               <div className="space-y-4 text-sm text-gray-400">
                 <div className="flex justify-between py-2 border-b border-white/5">
-                  <span>Type de billet</span>
+                  <span>Ticket Type</span>
                   <span className="text-white font-medium">
                     {Object.values(TICKET_TYPES).find(t => t.id === selectedTicketType)?.name}
                   </span>
@@ -118,11 +118,11 @@ export default function Booking() {
                 <div className="flex justify-between py-2 border-b border-white/5">
                   <span>Date</span>
                   <span className="text-white font-medium">
-                    {date ? format(date, "d MMMM yyyy", { locale: fr }) : "Non sélectionnée"}
+                    {date ? format(date, "MMMM do yyyy") : "Not selected"}
                   </span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-white/5">
-                  <span>Quantité</span>
+                  <span>Quantity</span>
                   <span className="text-white font-medium">{quantity}x</span>
                 </div>
                 <div className="flex justify-between pt-4 text-lg">
@@ -144,7 +144,7 @@ export default function Booking() {
               
               {/* Date Selection */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Date de visite</label>
+                <label className="text-sm font-medium text-gray-300">Visit Date</label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <button className={cn(
@@ -152,7 +152,7 @@ export default function Booking() {
                       !date && "text-muted-foreground"
                     )}>
                       <CalendarIcon className="mr-2 h-4 w-4 text-primary" />
-                      {date ? format(date, "PPP", { locale: fr }) : <span>Choisir une date</span>}
+                      {date ? format(date, "PPP") : <span>Choose a date</span>}
                     </button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0 bg-card border-white/10" align="start">
@@ -170,7 +170,7 @@ export default function Booking() {
 
               {/* Ticket Type */}
               <div className="space-y-3">
-                <label className="text-sm font-medium text-gray-300">Type de billet</label>
+                <label className="text-sm font-medium text-gray-300">Ticket Type</label>
                 <div className="grid grid-cols-1 gap-3">
                   {Object.entries(TICKET_TYPES).map(([key, value]) => (
                     <TicketSelector 
@@ -189,7 +189,7 @@ export default function Booking() {
 
               {/* Quantity */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-300">Nombre de personnes</label>
+                <label className="text-sm font-medium text-gray-300">Number of people</label>
                 <div className="flex items-center gap-4">
                   <button 
                     type="button"
@@ -218,11 +218,11 @@ export default function Booking() {
               {/* Contact Info */}
               <div className="grid grid-cols-1 gap-4">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Nom complet</label>
+                  <label className="text-sm font-medium text-gray-300">Full Name</label>
                   <input 
                     {...form.register("name")}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                    placeholder="Jean Dupont"
+                    placeholder="John Doe"
                   />
                   {form.formState.errors.name && (
                     <p className="text-xs text-destructive">{form.formState.errors.name.message}</p>
@@ -233,14 +233,14 @@ export default function Booking() {
                   <input 
                     {...form.register("email")}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                    placeholder="jean@exemple.fr"
+                    placeholder="john@example.com"
                   />
                   {form.formState.errors.email && (
                     <p className="text-xs text-destructive">{form.formState.errors.email.message}</p>
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Téléphone</label>
+                  <label className="text-sm font-medium text-gray-300">Phone</label>
                   <input 
                     {...form.register("phone")}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
@@ -259,10 +259,10 @@ export default function Booking() {
               >
                 {isPending ? (
                   <>
-                    <Loader2 className="w-5 h-5 animate-spin" /> Traitement...
+                    <Loader2 className="w-5 h-5 animate-spin" /> Processing...
                   </>
                 ) : (
-                  "Procéder au paiement"
+                  "Proceed to Payment"
                 )}
               </button>
             </form>

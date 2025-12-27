@@ -19,7 +19,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-5xl md:text-6xl font-bold text-white mb-6"
           >
-            Contactez <span className="text-primary">BUSHMAN</span>
+            Contact <span className="text-primary">BUSHMAN</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -27,7 +27,7 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="text-gray-400 text-lg max-w-2xl mx-auto"
           >
-            Une question, une suggestion ou une demande particulière ? Notre équipe est à votre écoute pour rendre votre expérience inoubliable.
+            Any question, suggestion or special request? Our team is listening to make your experience unforgettable.
           </motion.p>
         </div>
 
@@ -42,24 +42,24 @@ export default function Contact() {
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Nom</label>
-                    <Input className="bg-white/5 border-white/10 rounded-xl h-12 text-white focus:border-primary" placeholder="Votre nom" />
+                    <label className="text-sm font-medium text-gray-300">Name</label>
+                    <Input className="bg-white/5 border-white/10 rounded-xl h-12 text-white focus:border-primary" placeholder="Your name" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-300">Email</label>
-                    <Input className="bg-white/5 border-white/10 rounded-xl h-12 text-white focus:border-primary" placeholder="votre@email.com" />
+                    <Input className="bg-white/5 border-white/10 rounded-xl h-12 text-white focus:border-primary" placeholder="your@email.com" />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Sujet</label>
-                  <Input className="bg-white/5 border-white/10 rounded-xl h-12 text-white focus:border-primary" placeholder="L'objet de votre message" />
+                  <label className="text-sm font-medium text-gray-300">Subject</label>
+                  <Input className="bg-white/5 border-white/10 rounded-xl h-12 text-white focus:border-primary" placeholder="Subject of your message" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-300">Message</label>
-                  <Textarea className="bg-white/5 border-white/10 rounded-xl min-h-[150px] text-white focus:border-primary" placeholder="Comment pouvons-nous vous aider ?" />
+                  <Textarea className="bg-white/5 border-white/10 rounded-xl min-h-[150px] text-white focus:border-primary" placeholder="How can we help you?" />
                 </div>
                 <Button className="w-full h-14 rounded-xl bg-primary hover:bg-primary/80 text-white font-bold text-lg flex items-center justify-center gap-2">
-                  Envoyer le message
+                  Send Message
                   <Send className="w-5 h-5" />
                 </Button>
               </form>
@@ -75,8 +75,8 @@ export default function Contact() {
           >
             <ContactInfoItem 
               icon={<MapPin className="w-6 h-6" />}
-              title="Adresse"
-              content="3, route de M'Pouto, Cocody Riviera 3, Cote d'Ivoire"
+              title="Address"
+              content="3, route de M'Pouto, Cocody Riviera 3, Ivory Coast"
               link="https://www.google.com/maps/search/?api=1&query=3,+route+de+M'Pouto,+Cocody+Riviera+3,+Cote+d'Ivoire"
             />
             <ContactInfoItem 
@@ -87,13 +87,13 @@ export default function Contact() {
             />
             <ContactInfoItem 
               icon={<Phone className="w-6 h-6" />}
-              title="Téléphone"
+              title="Phone"
               content="+225 0759496651"
               link="tel:+2250759496651"
             />
 
             <div className="pt-8">
-              <h3 className="text-white font-display text-2xl mb-6">Suivez l'aventure</h3>
+              <h3 className="text-white font-display text-2xl mb-6">Follow the adventure</h3>
               <div className="flex gap-4">
                 <SocialLink icon={<Instagram />} />
                 <SocialLink icon={<Facebook />} />

@@ -4,10 +4,10 @@ import { z } from "zod";
 
 // Ticket Types (Static data usually, but good to have a type)
 export const TICKET_TYPES = {
-  ADULT: { id: 'adult', name: 'Adulte', price: 15 },
-  CHILD: { id: 'child', name: 'Enfant (-12 ans)', price: 8 },
-  SENIOR: { id: 'senior', name: 'Senior (+65 ans)', price: 12 },
-  STUDENT: { id: 'student', name: 'Étudiant', price: 10 },
+  ADULT: { id: 'adult', name: 'Adult', price: 15 },
+  CHILD: { id: 'child', name: 'Child (-12 years)', price: 8 },
+  SENIOR: { id: 'senior', name: 'Senior (+65 years)', price: 12 },
+  STUDENT: { id: 'student', name: 'Student', price: 10 },
 } as const;
 
 export const bookings = pgTable("bookings", {

@@ -18,9 +18,9 @@ export function Navigation() {
   }, []);
 
   const links = [
-    { href: "/", label: "Billetterie" },
-    { href: "/accueil", label: "Accueil" },
-    { href: "/galerie", label: "La Galerie" },
+    { href: "/", label: "Ticketing" },
+    { href: "/accueil", label: "Home" },
+    { href: "/galerie", label: "Gallery" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -88,7 +88,7 @@ export function Navigation() {
                 }`}
               >
                 <Ticket className="h-4 w-4 mr-2" />
-                Réserver
+                Book Now
               </Button>
             </Link>
           </div>

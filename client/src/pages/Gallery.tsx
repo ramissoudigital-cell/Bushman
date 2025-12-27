@@ -61,7 +61,7 @@ export default function Gallery() {
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-5xl md:text-6xl font-bold mb-6"
           >
-            La <span className="text-primary">Collection</span>
+            The <span className="text-primary">Collection</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -69,7 +69,7 @@ export default function Gallery() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground max-w-2xl mx-auto text-lg"
           >
-            Une sélection d'œuvres où la lumière lutte avec l'obscurité pour exister.
+            A selection of works where light struggles with darkness to exist.
           </motion.p>
         </div>
 
