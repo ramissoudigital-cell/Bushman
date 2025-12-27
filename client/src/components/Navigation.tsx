@@ -30,9 +30,9 @@ export function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      className={`fixed w-full z-[100] transition-all duration-500 ${
         isScrolled || !isHomePage
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-white/5"
+          ? "bg-background/70 backdrop-blur-xl shadow-lg border-b border-white/10"
           : "bg-transparent"
       }`}
     >
