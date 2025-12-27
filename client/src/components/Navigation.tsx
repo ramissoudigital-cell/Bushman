@@ -8,9 +8,9 @@ export function Navigation() {
   const [location] = useLocation();
 
   const links = [
-    { href: "/", label: "Accueil" },
+    { href: "/accueil", label: "Accueil" },
     { href: "/galerie", label: "La Galerie" },
-    { href: "/billetterie", label: "Billetterie" },
+    { href: "/", label: "Billetterie" },
   ];
 
   return (

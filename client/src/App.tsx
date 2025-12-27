@@ -31,7 +31,8 @@ function Router() {
       <Navigation />
       <main className="flex-grow">
         <Switch>
-          <Route path="/" component={Home} />
+          <Route path="/" component={Booking} />
+          <Route path="/accueil" component={Home} />
           <Route path="/galerie" component={Gallery} />
           <Route path="/billetterie" component={Booking} />
           <Route path="/succes" component={Success} />
