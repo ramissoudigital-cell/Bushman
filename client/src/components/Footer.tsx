@@ -38,15 +38,32 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>3, route de M'Pouto, Cocody Riviera 3, Cote d'Ivoire</span>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=3,+route+de+M'Pouto,+Cocody+Riviera+3,+Cote+d'Ivoire" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  3, route de M'Pouto, Cocody Riviera 3, Cote d'Ivoire
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contact@bushmanreturntoimagination.com</span>
+                <a 
+                  href="mailto:contact@bushmanreturntoimagination.com" 
+                  className="hover:text-primary transition-colors"
+                >
+                  contact@bushmanreturntoimagination.com
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>+225 0759496651</span>
+                <a 
+                  href="tel:+2250759496651" 
+                  className="hover:text-primary transition-colors"
+                >
+                  +225 0759496651
+                </a>
               </li>
             </ul>
           </div>

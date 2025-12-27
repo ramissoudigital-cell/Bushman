@@ -156,7 +156,18 @@ function InfoCard({ icon, title, description }: { icon: React.ReactNode, title: 
         {icon}
       </div>
       <h3 className="font-display text-2xl font-semibold mb-3 text-white">{title}</h3>
-      <p className="text-gray-400 leading-relaxed">{description}</p>
+      {title === "Accès" ? (
+        <a 
+          href="https://www.google.com/maps/search/?api=1&query=3,+route+de+M'Pouto,+Cocody+Riviera+3,+Cote+d'Ivoire"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-400 leading-relaxed hover:text-primary transition-colors"
+        >
+          {description}
+        </a>
+      ) : (
+        <p className="text-gray-400 leading-relaxed">{description}</p>
+      )}
     </div>
   );
 }
